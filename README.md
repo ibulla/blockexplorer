@@ -3,9 +3,9 @@ codebase for www.blockexplorer.li
 
 ### ABSTRACT ###
 
-You may ask what is a SZABO-MACHINE? or may not – anyway – I explain it to you.\
-SZABO-MACHINE is a homage to the good old JUKEBOX.\
-Once you put in a coin the machine will run some entertainment for a period of time - THATS'S SZABO! - only via contract on a blockchain ;)
+You may ask what is a *SZABO-MACHINE*? or may not – anyway – I explain it to you.\
+*SZABO-MACHINE* is a homage to the good old *JUKEBOX*.\
+Once you put in a coin the machine will run some entertainment for a period of time - *THATS'S SZABO!* - only via contract on a blockchain ;)
 
 #### CONTRACT ####
 
