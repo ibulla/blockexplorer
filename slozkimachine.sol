@@ -9,7 +9,6 @@ contract SlozkiMachine {
     constructor () payable {
     uint256 currBlock = block.number;
     uint256 freeBlocks = msg.value / 1000000000000000;
-    
       if(unlockBlock > currBlock){
             unlockBlock = unlockBlock + freeBlocks;
         }else{
@@ -18,7 +17,7 @@ contract SlozkiMachine {
     }
     
     
-    function getUnlock() public view returns (uint256){
+    function getUnlockBlock() public view returns (uint256){
         return unlockBlock;
     }
 }
