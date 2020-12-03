@@ -2,7 +2,7 @@
 
 pragma solidity >=0.7.0 <0.8.0;
 
-contract SlozkiMachine {
+contract SzaboMachine {
     
     uint256 unlockBlock;
     
