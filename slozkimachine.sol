@@ -5,17 +5,20 @@ pragma solidity ^0.5.0;
 contract SzaboMachine {
     
     uint256 unlockBlock;
-    uint256 freeBlocks;
+    uint256 currBlocks = block.number;
+    uint256 freeBlocks = msg.value / 1000000000000000;
     
     function () external payable {
-        uint256 currBlock = block.number;
-        uint256 freeBlocks = msg.value / 1000000000000000;
-        if(unlockBlock > currBlock){
+        if(unlockBlock > currBlocks){
             unlockBlock = unlockBlock + freeBlocks;
         }else{
-            unlockBlock = currBlock + freeBlocks;
+            unlockBlock = currBlocks + freeBlocks;
         }
     }
+    
+    function getCurrBlocks() public view returns (uint256){
+        return currBlocks;
+    }  
     
     function getFreeBlocks() public view returns (uint256){
         return freeBlocks;
