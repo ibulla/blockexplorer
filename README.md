@@ -13,3 +13,7 @@ The amount of ETHER send to the contract will be transformed to a certain amount
 
 #### SZABO ####
 1 SZABO = 1 Microether or 1e12 or 1,000,000,000,000 or 0.001 Blocks
+
+### DEPLOYMENT ###
+
+The reference implementation can be found in `SzaboMachine.sol`. Compile it with Solidity ^0.8 and deploy. Calling `insertCoin()` with Ether extends the machine's running time and returns the new `unlockBlock`.
