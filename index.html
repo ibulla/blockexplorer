@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szabo Machine Status</title>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.2/dist/ethers.min.js"></script>
+    <style>
+        #banner {
+            display: none;
+            background: #fffae6;
+            border: 1px solid #ffd42a;
+            padding: 1em;
+            margin-top: 1em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Szabo Machine Status</h1>
+    <p>Current block: <span id="current-block">loading...</span></p>
+    <div id="banner"></div>
+    <script>
+        (async function() {
+            const network = 'ropsten'; // change to 'homestead' for mainnet
+            const provider = ethers.getDefaultProvider(network);
+
+            const currentBlock = await provider.getBlockNumber();
+            document.getElementById('current-block').textContent = currentBlock;
+
+            const contractAddress = '0x0000000000000000000000000000000000000000'; // replace with real contract
+            const abi = [
+                "function getUnlockBlock() view returns (uint256)"
+            ];
+
+            const contract = new ethers.Contract(contractAddress, abi, provider);
+            const unlockBlock = await contract.getUnlockBlock();
+
+            if (unlockBlock.gt(currentBlock)) {
+                const banner = document.getElementById('banner');
+                banner.style.display = 'block';
+                banner.textContent = 'Contract unlocked until block ' + unlockBlock.toString();
+            }
+        })();
+    </script>
+</body>
+</html>
